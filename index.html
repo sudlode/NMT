@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelia — Discover the World</title>
+    <meta name="description" content="Travelia helps you discover beautiful destinations, plan unforgettable trips, and explore the world.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Travelia — Discover the World">
+    <meta property="og:description" content="Travelia helps you discover beautiful destinations, plan unforgettable trips, and explore the world.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <i class="fa-solid fa-earth-americas"></i> TRAVELIA
+            </a>
+            
+            <nav class="nav-links" id="nav-menu">
+                <a href="#home" class="nav-item active">Home</a>
+                <a href="#destinations" class="nav-item">Destinations</a>
+                <a href="#popular" class="nav-item">Popular</a>
+                <a href="#about" class="nav-item">About Us</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="open-favorites" aria-label="Favorites" title="View Favorites">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="fav-badge" id="fav-badge">0</span>
+                </button>
+                <button class="icon-btn" id="toggle-search" aria-label="Search" title="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="#destinations" class="btn btn-primary start-btn">Start Exploring</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Global Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-modal">
+            <button class="close-btn" id="close-search">&times;</button>
+            <h2>Search Destinations</h2>
+            <div class="search-input-group">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search-input" placeholder="Try 'Paris', 'Japan', 'Beach'...">
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content animate-on-scroll slide-up">
+                <span class="badge"><i class="fa-solid fa-plane"></i> 120+ Destinations</span>
+                <h1>Discover the World.<br>Create Your Story.</h1>
+                <p>Find incredible destinations, plan unforgettable trips, and explore the world with us.</p>
+                <div class="hero-buttons">
+                    <a href="#destinations" class="btn btn-primary btn-large">Explore Destinations</a>
+                    <a href="#popular" class="btn btn-secondary btn-large">View Popular Trips</a>
+                </div>
+            </div>
+
+            <!-- Hero Search Panel -->
+            <div class="container search-panel-container">
+                <div class="search-panel animate-on-scroll fade-in">
+                    <div class="search-field">
+                        <label><i class="fa-solid fa-location-dot"></i> Where do you want to go?</label>
+                        <input type="text" id="hero-search-location" placeholder="Destination, city, or country">
+                    </div>
+                    <div class="search-field">
+                        <label><i class="fa-solid fa-calendar-days"></i> Travel Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="search-field">
+                        <label><i class="fa-solid fa-user-group"></i> Travelers</label>
+                        <select>
+                            <option>1 Adult</option>
+                            <option selected>2 Adults</option>
+                            <option>Family</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary search-panel-btn" id="hero-search-btn"><i class="fa-solid fa-magnifying-glass"></i> Search Trips</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Destinations -->
+        <section id="destinations" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <h2>Popular Destinations</h2>
+                    <p>Places you should visit at least once in your lifetime.</p>
+                </div>
+                
+                <div class="grid cards-grid">
+                    <!-- Destination Card 1 -->
+                    <div class="card dest-card animate-on-scroll slide-up" 
+                         data-id="dest-1" 
+                         data-title="Paris" 
+                         data-country="France"
+                         data-rating="4.9"
+                         data-reviews="12.4k"
+                         data-price="$899"
+                         data-duration="5 Days"
+                         data-img="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80"
+                         data-desc="The city of light, love, and architectural marvels. Experience world-class cuisine, iconic monuments, and romantic walks along the Seine.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Eiffel Tower, Paris" loading="lazy">
+                            <button class="fav-btn" aria-label="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Paris</h3>
+                                <span class="country"><i class="fa-solid fa-location-dot"></i> France</span>
+                            </div>
+                            <p>The city of light, love, and architectural marvels.</p>
+                            <div class="card-footer">
+                                <span class="rating"><i class="fa-solid fa-star"></i> 4.9 <span class="reviews">(12.4k)</span></span>
+                                <button class="btn btn-outline btn-sm view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destination Card 2 -->
+                    <div class="card dest-card animate-on-scroll slide-up" 
+                         data-id="dest-2" 
+                         data-title="Rome" 
+                         data-country="Italy"
+                         data-rating="4.8"
+                         data-reviews="9.2k"
+                         data-price="$780"
+                         data-duration="6 Days"
+                         data-img="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Discover ancient ruins, marvelous basilicas, and amazing authentic Italian cuisine in the heart of Europe.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="Colosseum, Rome" loading="lazy">
+                            <button class="fav-btn" aria-label="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Rome</h3>
+                                <span class="country"><i class="fa-solid fa-location-dot"></i> Italy</span>
+                            </div>
+                            <p>Discover ancient ruins and amazing Italian cuisine.</p>
+                            <div class="card-footer">
+                                <span class="rating"><i class="fa-solid fa-star"></i> 4.8 <span class="reviews">(9.2k)</span></span>
+                                <button class="btn btn-outline btn-sm view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destination Card 3 -->
+                    <div class="card dest-card animate-on-scroll slide-up" 
+                         data-id="dest-3" 
+                         data-title="Tokyo" 
+                         data-country="Japan"
+                         data-rating="4.9"
+                         data-reviews="15.1k"
+                         data-price="$1,250"
+                         data-duration="8 Days"
+                         data-img="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80"
+                         data-desc="A dazzling mix of modern neon skyscrapers, serene traditional temples, incredible gastronomy, and cutting-edge tech.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" alt="Tokyo Skyline" loading="lazy">
+                            <button class="fav-btn" aria-label="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Tokyo</h3>
+                                <span class="country"><i class="fa-solid fa-location-dot"></i> Japan</span>
+                            </div>
+                            <p>A dazzling mix of modern neon and traditional temples.</p>
+                            <div class="card-footer">
+                                <span class="rating"><i class="fa-solid fa-star"></i> 4.9 <span class="reviews">(15.1k)</span></span>
+                                <button class="btn btn-outline btn-sm view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destination Card 4 -->
+                    <div class="card dest-card animate-on-scroll slide-up" 
+                         data-id="dest-4" 
+                         data-title="Santorini" 
+                         data-country="Greece"
+                         data-rating="4.7"
+                         data-reviews="8.5k"
+                         data-price="$950"
+                         data-duration="5 Days"
+                         data-img="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Stunning sunsets, iconic white-washed architecture, crystal clear Aegean waters, and peaceful luxury resorts.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=800&q=80" alt="Santorini, Greece" loading="lazy">
+                            <button class="fav-btn" aria-label="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Santorini</h3>
+                                <span class="country"><i class="fa-solid fa-location-dot"></i> Greece</span>
+                            </div>
+                            <p>Stunning sunsets and iconic white-washed architecture.</p>
+                            <div class="card-footer">
+                                <span class="rating"><i class="fa-solid fa-star"></i> 4.7 <span class="reviews">(8.5k)</span></span>
+                                <button class="btn btn-outline btn-sm view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destination Card 5 -->
+                    <div class="card dest-card animate-on-scroll slide-up" 
+                         data-id="dest-5" 
+                         data-title="Swiss Alps" 
+                         data-country="Switzerland"
+                         data-rating="5.0"
+                         data-reviews="6.3k"
+                         data-price="$1,400"
+                         data-duration="7 Days"
+                         data-img="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Breathtaking mountain views, pristine alpine trails, cozy chalets, and scenic mountain railway routes.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" alt="Swiss Alps" loading="lazy">
+                            <button class="fav-btn" aria-label="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Swiss Alps</h3>
+                                <span class="country"><i class="fa-solid fa-location-dot"></i> Switzerland</span>
+                            </div>
+                            <p>Breathtaking mountain views and pristine nature trails.</p>
+                            <div class="card-footer">
+                                <span class="rating"><i class="fa-solid fa-star"></i> 5.0 <span class="reviews">(6.3k)</span></span>
+                                <button class="btn btn-outline btn-sm view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destination Card 6 -->
+                    <div class="card dest-card animate-on-scroll slide-up" 
+                         data-id="dest-6" 
+                         data-title="Reykjavik" 
+                         data-country="Iceland"
+                         data-rating="4.8"
+                         data-reviews="4.1k"
+                         data-price="$1,100"
+                         data-duration="6 Days"
+                         data-img="https://images.unsplash.com/photo-1520769945061-0a448c463865?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Experience the magic of the Northern Lights, geothermal lagoons, dramatic waterfalls, and geysers.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1520769945061-0a448c463865?auto=format&fit=crop&w=800&q=80" alt="Northern Lights, Iceland" loading="lazy">
+                            <button class="fav-btn" aria-label="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Reykjavik</h3>
+                                <span class="country"><i class="fa-solid fa-location-dot"></i> Iceland</span>
+                            </div>
+                            <p>Experience the magic of the Northern Lights and geysers.</p>
+                            <div class="card-footer">
+                                <span class="rating"><i class="fa-solid fa-star"></i> 4.8 <span class="reviews">(4.1k)</span></span>
+                                <button class="btn btn-outline btn-sm view-details-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Categories -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <h2>Choose Your Travel Style</h2>
+                    <p>Find the perfect experience tailored to your passions.</p>
+                </div>
+                
+                <div class="grid categories-grid animate-on-scroll fade-in">
+                    <div class="category-card"><div class="cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div><h4>Beach</h4></div>
+                    <div class="category-card"><div class="cat-icon"><i class="fa-solid fa-mountain-sun"></i></div><h4>Mountains</h4></div>
+                    <div class="category-card"><div class="cat-icon"><i class="fa-solid fa-city"></i></div><h4>Cities</h4></div>
+                    <div class="category-card"><div class="cat-icon"><i class="fa-solid fa-leaf"></i></div><h4>Nature</h4></div>
+                    <div class="category-card"><div class="cat-icon"><i class="fa-solid fa-person-hiking"></i></div><h4>Adventure</h4></div>
+                    <div class="category-card"><div class="cat-icon"><i class="fa-solid fa-heart"></i></div><h4>Romance</h4></div>
+                    <div class="category-card"><div class="cat-icon"><i class="fa-solid fa-utensils"></i></div><h4>Food & Culture</h4></div>
+                    <div class="category-card"><div class="cat-icon"><i class="fa-solid fa-landmark"></i></div><h4>History</h4></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Trips (Filterable) -->
+        <section id="popular" class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <h2>Featured Trips</h2>
+                    <p>Hand-picked itineraries for your next adventure.</p>
+                </div>
+
+                <!-- Filter System -->
+                <div class="filters-container animate-on-scroll fade-in">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="europe">Europe</button>
+                    <button class="filter-btn" data-filter="asia">Asia</button>
+                    <button class="filter-btn" data-filter="america">America</button>
+                    <button class="filter-btn" data-filter="africa">Africa</button>
+                </div>
+
+                <div class="grid trips-grid" id="trips-grid">
+                    <!-- Trip 1 -->
+                    <div class="card trip-card animate-on-scroll slide-up" 
+                         data-category="europe" 
+                         data-id="trip-1"
+                         data-title="Italian Adventure"
+                         data-country="Italy"
+                         data-rating="4.9"
+                         data-reviews="2.1k"
+                         data-price="$899"
+                         data-duration="7 Days"
+                         data-img="https://images.unsplash.com/photo-1515542622106-78bda8f659c9?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Explore the ancient streets of Rome, the Renaissance art of Florence, and romantic gondola rides through Venice channels.">
+                        <div class="card-img-wrapper">
+                            <span class="trip-badge">POPULAR</span>
+                            <img src="https://images.unsplash.com/photo-1515542622106-78bda8f659c9?auto=format&fit=crop&w=800&q=80" alt="Italian Adventure" loading="lazy">
+                            <button class="fav-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Italian Adventure</h3>
+                            <p class="trip-meta"><i class="fa-regular fa-clock"></i> 7 Days &bull; <i class="fa-solid fa-location-dot"></i> Italy</p>
+                            <p class="trip-desc">Explore the ancient streets of Rome, the art of Florence, and the canals of Venice.</p>
+                            <div class="trip-footer">
+                                <div class="trip-price">From <span>$899</span></div>
+                                <button class="btn btn-primary btn-sm view-details-btn">View Trip</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trip 2 -->
+                    <div class="card trip-card animate-on-scroll slide-up" 
+                         data-category="asia" 
+                         data-id="trip-2"
+                         data-title="Bali Retreat"
+                         data-country="Indonesia"
+                         data-rating="4.8"
+                         data-reviews="1.8k"
+                         data-price="$1,199"
+                         data-duration="10 Days"
+                         data-img="https://images.unsplash.com/photo-1493780474015-ba834fd0ce2f?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Relax on pristine beaches, explore lush rice terraced landscapes, visit ancient water temples, and rejuvenate with wellness spas.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1493780474015-ba834fd0ce2f?auto=format&fit=crop&w=800&q=80" alt="Bali Retreat" loading="lazy">
+                            <button class="fav-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Bali Retreat</h3>
+                            <p class="trip-meta"><i class="fa-regular fa-clock"></i> 10 Days &bull; <i class="fa-solid fa-location-dot"></i> Indonesia</p>
+                            <p class="trip-desc">Relax on pristine beaches and explore lush jungles and beautiful ancient temples.</p>
+                            <div class="trip-footer">
+                                <div class="trip-price">From <span>$1,199</span></div>
+                                <button class="btn btn-primary btn-sm view-details-btn">View Trip</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trip 3 -->
+                    <div class="card trip-card animate-on-scroll slide-up" 
+                         data-category="america" 
+                         data-id="trip-3"
+                         data-title="New York Explorer"
+                         data-country="USA"
+                         data-rating="4.9"
+                         data-reviews="3.4k"
+                         data-price="$750"
+                         data-duration="5 Days"
+                         data-img="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Experience the electric energy of Times Square, stroll through Central Park, watch Broadway shows, and explore top art galleries.">
+                        <div class="card-img-wrapper">
+                            <span class="trip-badge">BEST SELLER</span>
+                            <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80" alt="New York Explorer" loading="lazy">
+                            <button class="fav-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>New York Explorer</h3>
+                            <p class="trip-meta"><i class="fa-regular fa-clock"></i> 5 Days &bull; <i class="fa-solid fa-location-dot"></i> USA</p>
+                            <p class="trip-desc">Experience the energy of Times Square, Central Park, and world-class museums.</p>
+                            <div class="trip-footer">
+                                <div class="trip-price">From <span>$750</span></div>
+                                <button class="btn btn-primary btn-sm view-details-btn">View Trip</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trip 4 -->
+                    <div class="card trip-card animate-on-scroll slide-up" 
+                         data-category="europe" 
+                         data-id="trip-4"
+                         data-title="London Classics"
+                         data-country="UK"
+                         data-rating="4.7"
+                         data-reviews="1.5k"
+                         data-price="$940"
+                         data-duration="6 Days"
+                         data-img="https://images.unsplash.com/photo-1548625361-ec853c829e06?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Dive into royal history at Buckingham Palace, visit Big Ben, ride the London Eye, and enjoy cozy English pubs.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1548625361-ec853c829e06?auto=format&fit=crop&w=800&q=80" alt="London Classics" loading="lazy">
+                            <button class="fav-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>London Classics</h3>
+                            <p class="trip-meta"><i class="fa-regular fa-clock"></i> 6 Days &bull; <i class="fa-solid fa-location-dot"></i> UK</p>
+                            <p class="trip-desc">Dive into royal history, modern culture, and the vibrant atmosphere of London.</p>
+                            <div class="trip-footer">
+                                <div class="trip-price">From <span>$940</span></div>
+                                <button class="btn btn-primary btn-sm view-details-btn">View Trip</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trip 5 -->
+                    <div class="card trip-card animate-on-scroll slide-up" 
+                         data-category="africa" 
+                         data-id="trip-5"
+                         data-title="Safari Adventure"
+                         data-country="Kenya"
+                         data-rating="5.0"
+                         data-reviews="980"
+                         data-price="$1,450"
+                         data-duration="8 Days"
+                         data-img="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80"
+                         data-desc="Witness lions, elephants, and wild fauna up close in their majestic natural habitats across the open African savanna.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80" alt="Safari Adventure" loading="lazy">
+                            <button class="fav-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Safari Adventure</h3>
+                            <p class="trip-meta"><i class="fa-regular fa-clock"></i> 8 Days &bull; <i class="fa-solid fa-location-dot"></i> Kenya</p>
+                            <p class="trip-desc">Witness incredible wildlife up close in their natural habitat across the savanna.</p>
+                            <div class="trip-footer">
+                                <div class="trip-price">From <span>$1,450</span></div>
+                                <button class="btn btn-primary btn-sm view-details-btn">View Trip</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trip 6 -->
+                    <div class="card trip-card animate-on-scroll slide-up" 
+                         data-category="asia" 
+                         data-id="trip-6"
+                         data-title="Thai Wonders"
+                         data-country="Thailand"
+                         data-rating="4.8"
+                         data-reviews="2.9k"
+                         data-price="$1,050"
+                         data-duration="12 Days"
+                         data-img="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"
+                         data-desc="A perfect blend of golden ornate temples, vibrant street food markets, and exotic tropical island hopping.">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80" alt="Thai Wonders" loading="lazy">
+                            <button class="fav-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <div class="card-content">
+                            <h3>Thai Wonders</h3>
+                            <p class="trip-meta"><i class="fa-regular fa-clock"></i> 12 Days &bull; <i class="fa-solid fa-location-dot"></i> Thailand</p>
+                            <p class="trip-desc">A perfect blend of golden temples, spicy street food, and tropical island hopping.</p>
+                            <div class="trip-footer">
+                                <div class="trip-price">From <span>$1,050</span></div>
+                                <button class="btn btn-primary btn-sm view-details-btn">View Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section bg-light about-section">
+            <div class="container about-container">
+                <div class="about-image animate-on-scroll slide-left">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80" alt="Travelers">
+                </div>
+                <div class="about-content animate-on-scroll slide-right">
+                    <h2>Travel More. Live Brighter.</h2>
+                    <p>We believe that traveling is more than just moving from one place to another. It's about stories, experiences, and moments that change your perspective forever. Let us handle the details while you enjoy the journey.</p>
+                    <ul class="advantages-list">
+                        <li><i class="fa-solid fa-check"></i> Verified destinations</li>
+                        <li><i class="fa-solid fa-check"></i> Trusted recommendations</li>
+                        <li><i class="fa-solid fa-check"></i> Easy trip planning</li>
+                        <li><i class="fa-solid fa-check"></i> Unique travel experiences</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="statistics-section">
+            <div class="container stats-container" id="stats-section">
+                <div class="stat-box">
+                    <h3 class="counter" data-target="120">0</h3><span>+</span>
+                    <p>Destinations</p>
+                </div>
+                <div class="stat-box">
+                    <h3 class="counter" data-target="50">0</h3><span>K+</span>
+                    <p>Happy Travelers</p>
+                </div>
+                <div class="stat-box">
+                    <h3 class="counter-float" data-target="4.9">0.0</h3><span>/5</span>
+                    <p>Average Rating</p>
+                </div>
+                <div class="stat-box">
+                    <h3 class="counter" data-target="15">0</h3><span>K+</span>
+                    <p>Reviews</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Inspiration Gallery -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <h2>Travel Inspiration</h2>
+                    <p>A glimpse into the beautiful world waiting for you.</p>
+                </div>
+                <div class="masonry-gallery" id="gallery">
+                    <img src="https://images.unsplash.com/photo-1506744626753-1fa44df31c7f?auto=format&fit=crop&w=600&q=80" alt="Mountains" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beaches" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" alt="Airplanes" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=80" alt="Cities" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80" alt="Roads" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80" alt="Forests" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <h2>What Travelers Say</h2>
+                    <p>Real stories from our amazing community.</p>
+                </div>
+                
+                <div class="testimonials-wrapper animate-on-scroll fade-in">
+                    <button class="slider-btn prev-btn" id="testi-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="testimonials-container" id="testimonials-track">
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="review-text">"Travelia made booking our honeymoon to Santorini incredibly easy. The recommendations were spot on!"</p>
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J.">
+                                <div class="rev-info"><h4>Sarah Jenkins</h4><span>USA</span></div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="review-text">"I always use Travelia for my trips. The clean interface and filtered trips save me hours of research."</p>
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael C.">
+                                <div class="rev-info"><h4>Michael Chen</h4><span>Canada</span></div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="review-text">"The Italian Adventure trip was exactly what my family needed. Everything was perfectly organized."</p>
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma T.">
+                                <div class="rev-info"><h4>Emma Thompson</h4><span>UK</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-btn next-btn" id="testi-next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-dots" id="testi-dots"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll slide-up">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions or need custom trip planning? Reach out to us anytime.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info animate-on-scroll slide-left">
+                        <div class="info-card">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p>support@travelia.com</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>+1 (800) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4>Main Office</h4>
+                                <p>742 Evergreen Terrace, NY</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="contact-form animate-on-scroll slide-right">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="Your Message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <div id="contact-msg" class="form-msg"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="section newsletter-section">
+            <div class="container newsletter-container animate-on-scroll scale-in">
+                <h2>Get Inspired for Your Next Adventure</h2>
+                <p>Subscribe and receive new destinations, travel tips, and special offers.</p>
+                <form id="newsletter-form" class="newsletter-form" novalidate>
+                    <input type="email" id="email-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <div id="newsletter-msg" class="form-msg"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#home" class="logo footer-logo"><i class="fa-solid fa-earth-americas"></i> TRAVELIA</a>
+                <p>Your premium travel companion to discover the world and plan unforgettable trips.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="#home">Home</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#popular">Popular Trips</a>
+                <a href="#about">About Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#contact">Contact</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Travelia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Destination / Trip Modal -->
+    <div class="modal-overlay" id="dest-modal">
+        <div class="modal-content">
+            <button class="close-btn modal-close">&times;</button>
+            <img src="" alt="Destination" id="modal-img" class="modal-img">
+            <div class="modal-body">
+                <h2 id="modal-title">Destination Name</h2>
+                <span class="country" id="modal-country"><i class="fa-solid fa-location-dot"></i> Country</span>
+                
+                <div class="modal-stats">
+                    <span><i class="fa-solid fa-star"></i> <span id="modal-rating">4.9</span> (<span id="modal-reviews">10k</span> reviews)</span>
+                    <span><i class="fa-regular fa-clock"></i> <span id="modal-duration">7 Days</span></span>
+                </div>
+                
+                <p id="modal-desc">Detailed description goes here.</p>
+                
+                <div class="modal-footer">
+                    <div class="price">From <span id="modal-price">$999</span></div>
+                    <div class="modal-actions">
+                        <button class="icon-btn fav-btn-modal" id="modal-fav-toggle"><i class="fa-regular fa-heart"></i></button>
+                        <button class="btn btn-primary" id="modal-book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Favorites Panel Modal -->
+    <div class="modal-overlay" id="fav-panel">
+        <div class="modal-content panel-content">
+            <button class="close-btn modal-close">&times;</button>
+            <div class="fav-header">
+                <h2>Your Favorites ❤️</h2>
+                <button class="btn btn-outline btn-sm" id="clear-all-favs">Clear All</button>
+            </div>
+            <div class="fav-list" id="fav-list">
+                <p class="empty-msg">You haven't saved any favorites yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-nav prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <img src="" alt="Gallery Full" id="lightbox-img">
+        <button class="lightbox-nav next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-counter" id="lightbox-counter">1 / 6</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
