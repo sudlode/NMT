@@ -718,7 +718,7 @@ header.scrolled {
     /* FILTERS */
     .filters-container {
         justify-content: flex-start;
-        overflow-x: auto;
+        overflow-x: hidden;
         flex-wrap: nowrap;
         gap: 8px;
         padding: 3px 2px 10px;
@@ -813,7 +813,7 @@ header.scrolled {
 
     .testimonials-container {
         gap: 12px;
-        overflow-x: auto;
+        overflow-x: hidden;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
     }
